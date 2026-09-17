@@ -1,3 +1,4 @@
 config.local.php
 .env
 *.zip
+node_modules

@@ -1,0 +1,19 @@
+{
+  "name": "smart-restroom",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Smart Restroom Monitoring System - soap and waste level dashboard on Netlify",
+  "scripts": {
+    "dev": "netlify dev",
+    "db:generate": "drizzle-kit generate"
+  },
+  "dependencies": {
+    "@netlify/database": "^2.0.1",
+    "drizzle-orm": "^1.0.0-beta.22"
+  },
+  "devDependencies": {
+    "@netlify/functions": "^6.0.0",
+    "drizzle-kit": "^1.0.0-beta.22"
+  }
+}
