@@ -1,0 +1,28 @@
+-- Fresh installation only: import into a NEW EMPTY database.
+-- Existing users and readings are not included. Register a new account.
+CREATE TABLE users (
+ id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+ name VARCHAR(100) NOT NULL,
+ email VARCHAR(100) NOT NULL UNIQUE,
+ password VARCHAR(255) NOT NULL,
+ created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE settings (
+ id INT NOT NULL PRIMARY KEY,
+ soap_threshold INT NOT NULL DEFAULT 20,
+ waste_threshold INT NOT NULL DEFAULT 80
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO settings (id, soap_threshold, waste_threshold) VALUES (1,20,80);
+CREATE TABLE sensor_data (
+ id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+ soap_level INT NOT NULL,
+ waste_level INT NOT NULL,
+ status VARCHAR(50) NOT NULL,
+ created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE alerts (
+ id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+ type VARCHAR(50) NOT NULL,
+ message TEXT NOT NULL,
+ created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
